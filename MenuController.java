@@ -1,7 +1,8 @@
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/menu")
 public class MenuController {
-    @Autowired
+     @Autowired
     private MenuService service;
 
     @GetMapping
