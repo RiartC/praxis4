@@ -1,0 +1,15 @@
+@Service
+public class ExternalApiService {
+
+    private final String API_KEY = "DEIN_API_KEY";
+    private final WebClient webClient = WebClient.create();
+
+    public String getWeather(String city) {
+        String url = String.format("https://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s&units=metric", city, API_KEY);
+        return webClient.get()
+                .uri(url)
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+    }
+}
